@@ -2,4 +2,16 @@
 
 {% block content %}
 
+{% for instance in lista %}
+<div>
+<p>{{instance.name}}</p >
+</div>
+{% endfor %}
+
+<center>
+<a href={{id_prev}}><</a>
+<a >{{actual}} de {{cant_paginas}}</a>
+<a href={{id_next}}>></a> 
+</center>
+
 {% endblock %}
