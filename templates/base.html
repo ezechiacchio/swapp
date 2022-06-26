@@ -20,9 +20,10 @@ body {font-family: "Open Sans"}
 <!-- Navigation bar with social media icons -->
 <div class="w3-bar w3-black w3-hide-small">
   <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
-  <a href="home" class="w3-bar-item w3-button">home</a>
-  <a href="search" class="w3-bar-item w3-button">search</a>
-  <a href="profile" class="w3-bar-item w3-button">profile</a>
+  <a href="/swapp/home" class="w3-bar-item w3-button">Home</a>
+  <a href="/swapp/search" class="w3-bar-item w3-button">Search</a>
+  <a href="/swapp/profile" class="w3-bar-item w3-button">Profile</a>
+  <a href="/swapp/list/0" class="w3-bar-item w3-button">Explore</a>
 </div>
   
 <!-- w3-content defines a container for fixed size centered content, 
@@ -33,9 +34,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <header class="w3-container w3-center w3-padding-48 w3-white">
     <h1 class="w3-xxxlarge"><b>Swapp</b></h1>
     <h6>La red social de <span class="w3-tag">Star Wars</span></h6>
-  </header>
-  {% include 'navbar.html'%}
-  
+  </header>  
 
  	{% block content %}
 

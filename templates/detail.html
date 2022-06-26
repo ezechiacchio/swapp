@@ -1,6 +1,49 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">    
+<center>
+<h1>{{personaje.name}}</h1>
+</center>
+<a href="javascript:history.back()" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-left w3-margin-right"></i>Back</a>
+<form action = "" method="post"> {% csrf_token %}
+    <input type="hidden" value={{personaje.name}} name = "pj_name">
+    <input type="hidden" value={{user.username}}  name = "user_name">
+{% if seguido is False %}
+<button type="submit" class="btn btn-outline-dark" id="boton_seguimiento" >Seguir a {{personaje.name}}</button>    
+{% else %}
+<button type="button" class="btn btn-outline-dark" id="boton_seguimiento">Seguido</button>    
+{% endif %}
+</form>
+<center>
+    <img src={{personaje.image}} height="300" width="300"/>
+</center>
+<br>
+<center>
+<table>
+    <tbody>
 
+<th><div><label class="label_personaje">Fecha de nacimiento: </label><h3 class="atributo_personaje">{{personaje.birth_year}}</h3></div></th>
+<th><div><label class="label_personaje">Género: </label><h3 class="atributo_personaje">{{personaje.gender}}</h3></div></th>
+{%if personaje.vehicle != "Ninguno"%}
+<th><div><label class="label_personaje">Vehiculo principal: </label><h3 class="atributo_personaje">{{personaje.vehicle}}</h3></div></th>
+{%endif %}
+</tbody>
+</table>
+</center>
+
+<style>
+.label_personaje{
+    margin-top: 1cm;
+    padding-left: 0.7cm;
+}
+.atributo_personaje{
+    padding-top: 0.3cm;
+    padding-left: 3cm;
+}
+#boton_seguimiento{
+    position: relative;
+    top: 100px; left: 40px;}
+</style>
 
 {% endblock %}

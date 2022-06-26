@@ -4,14 +4,14 @@
 
 {% for instance in lista %}
 <div>
-<p>{{instance.name}}</p >
+<button onclick="location.href='/swapp/detail/{{instance.id}}'">{{instance.name}}</button>
 </div>
 {% endfor %}
 
 <center>
 <a href={{id_prev}}><</a>
 <a >{{actual}} de {{cant_paginas}}</a>
-<a href={{id_next}}>></a> 
+<a href={{id_next}}>></a>
 </center>
 
 {% endblock %}
