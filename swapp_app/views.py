@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout,get_user
 from django.core.paginator import Paginator
 import requests
 from imagenes.personajes import PERSONAJES
+from mailer import Mailer
 
 def home_view(request):
   	return render(request,"home.html",{})
@@ -38,7 +39,11 @@ def detail_view(request,id):
 
 @login_required(login_url="/swapp/login")
 def profile_view(request):
-    context= {"user":get_user(request)}
+    user = get_user(request)
+    var = requests.get('http://127.0.0.1:8080/seguidos?user=' + user.username)
+    lista_seguidos = (var.json()['lista_seguidos'])
+    context= {"user":user,
+                "lista_seguidos": lista_seguidos}
     return render(request,"profile.html",context)
 
 def swapi_list_view(request,id):

@@ -24,6 +24,9 @@ body {font-family: "Open Sans"}
   <a href="/swapp/search" class="w3-bar-item w3-button">Search</a>
   <a href="/swapp/profile" class="w3-bar-item w3-button">Profile</a>
   <a href="/swapp/list/0" class="w3-bar-item w3-button">Explore</a>
+  {% if user.username is not ""%}
+  <a href = "/swapp/logout" class="w3-bar-item w3-right" >Cerrar sesion</a>
+  {%endif%}
 </div>
   
 <!-- w3-content defines a container for fixed size centered content, 

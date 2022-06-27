@@ -1,3 +1,4 @@
+from ipaddress import collapse_addresses
 from urllib import response
 from pydantic import BaseModel
 from pymongo import MongoClient
@@ -59,3 +60,16 @@ async def enviar_datos(item:Modelo_post):
     except Exception as e :
         print(e)
     return item
+
+@app.get("/seguidos")
+async def obtener_seguidos(user:str =""):
+    dbname = get_database()
+    collection_name = dbname["personajes"]
+    lista_seguidos = []
+    x = collection_name.find()
+    for elemento in x:
+        if elemento.get("user",None) == user:
+            lista_seguidos.append(elemento.get("pj"))
+    response = Response()
+    response.lista_seguidos = lista_seguidos 
+    return response
