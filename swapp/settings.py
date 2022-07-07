@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'swapp_app'
+    'swapp_app',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +84,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 
 # Password validation

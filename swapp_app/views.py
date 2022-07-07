@@ -41,7 +41,7 @@ def detail_view(request,id):
 def profile_view(request):
     user = get_user(request)
     var = requests.get('http://127.0.0.1:8080/seguidos?user=' + user.username)
-    lista_seguidos = (var.json()['lista_seguidos'])
+    lista_seguidos = (var.json().get('lista_seguidos',[]))
     context= {"user":user,
                 "lista_seguidos": lista_seguidos}
     return render(request,"profile.html",context)

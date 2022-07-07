@@ -1,5 +1,3 @@
-from ipaddress import collapse_addresses
-from urllib import response
 from pydantic import BaseModel
 from pymongo import MongoClient
 from fastapi import FastAPI
@@ -14,10 +12,10 @@ class Modelo_post(BaseModel):
 def get_database():
 
     # Provide the mongodb atlas url to connect python to mongodb using pymongo
-    CONNECTION_STRING = "mongodb+srv://eze:fVIJCdJiV53m7Thl@cluster0.pzvwq.mongodb.net/?retryWrites=true&w=majority"
+    CONNECTION_STRING = "mongodb+srv://eze:fVIJCdJiV53m7Thl@cluster0.pzvwq.mongodb.net/?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE"
 
     # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
-    client = MongoClient(CONNECTION_STRING)
+    client = MongoClient(CONNECTION_STRING,connect=False)
     # Create the database for our example (we will use the same database throughout the tutorial
     return client['personajes']
 
